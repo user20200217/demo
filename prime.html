@@ -1,0 +1,31 @@
+<html>
+<body>
+
+<div>The following script will generate prime numbers in the bracket [1, n], where n is the number you specify.</div>
+<script type="text/javascript">
+function func() {
+	n = document.getElementById('input').value;
+	document.getElementById('result').innerHTML = '';
+	var i;
+	var j;
+
+	for (i=2; i<n; i++) {
+		flag = true;
+		for (j=2; j*j<i+1; j++) {
+			if (i%j==0) {
+				flag = false;
+				j = i;
+			}
+		}
+		if (flag==true) {
+			document.getElementById('result').innerHTML = document.getElementById('result').innerHTML + i + ', ';
+		}
+	}
+	console.log('success');
+}
+</script>
+<input id="input" value=100></input>
+<button onclick="func(); return false;">Submit</button>
+<div id="result">Result</div>
+</body>
+</html>
